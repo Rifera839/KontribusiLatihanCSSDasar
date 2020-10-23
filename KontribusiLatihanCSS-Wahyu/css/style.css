@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'Bebasneue';
+    src: url(../fonts/BebasNeue-Regular.woff) format('woff');
+
+}
+
+body {
+    font: 18px;
+    line-height: 36px;
+    font-family: 'Bebasneue', 'Arial Narrow', Arial, Helvetica, sans-serif;
+    background-color: lightslategray;
+}
+
+h1 {
+    font-size: 80px;
+    margin: 50px 0;
+    text-align: center;
+    text-shadow: 5px 5px 5px white;
+}
+
+.container {
+    width: 710px;
+    background-color: lightblue;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 5px 5px 5px lightseagreen;
+    border-radius: 5px;
+}
+
+.gallery li {
+    width: 120px;
+    height: 120px;
+    /* overflow: hidden; */
+    border: 1px solid lightslategray;
+    box-shadow: 2px 2px 2px black;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+}
+
+.gallery li a img,
+.gallery li,
+.gallery li span {
+    border-radius: 5%;
+
+}
+
+.gallery li span {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(176, 196, 222, .5);
+    position: absolute;
+    top: 0;
+    text-align: center;
+    line-height: 120px;
+    color: rgb(57, 57, 57);
+    text-shadow: 1px 1px 1px #ddd;
+    opacity: 0;
+    transform: scale(0) rotate(0);
+    transition: 300ms;
+}
+
+.gallery li a:hover span {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+}
+
+.clear {
+    clear: both;
+}
+
+/* Overlay */
+
+.overlay {
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 999;
+    transition: 1s;
+    text-align: center;
+    padding: 50px;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.overlay img {
+    max-height: 100%;
+    box-shadow: 5px 5px 5px lightskyblue;
+
+}
+
+.overlay:target img{
+    animation: zoomdanfade 1s;
+}
+
+.overlay .close{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+}
+
+.overlay a .imgclose{
+    opacity: 0;
+    margin-top: 30px;
+    margin-left: -10px;
+    width: 50px;
+}
+
+.overlay:target a .imgclose{
+    animation: slidedownfade 0.7s 1s forwards;
+}
+
+/* animasi */
+@keyframes zoomdanfade{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }100%{
+        transform: scale(1);
+        opacity: 1;
+
+    }
+}
+
+@keyframes slidedownfade{
+    0%{
+        opacity: 0;
+        margin-top: -20px;
+    }100%{
+        opacity: 1;
+        margin-top: 30px;
+    }
+}
